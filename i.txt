@@ -1,0 +1,41 @@
+Steps and Configuration
+1. Prepare the GitHub Repository
+
+Ensure your Calculator.java is in a GitHub repository (e.g., Github_CalculatorApp).
+
+2. Setup ngrok (To enable Webhooks on Localhost)
+
+Open your terminal and run: ngrok http 8080.
+
+Copy the Forwarding URL provided (e.g., https://random-id.ngrok-free.app).
+
+3. Configure GitHub Webhook
+
+In your GitHub Repo, go to Settings > Webhooks > Add webhook.
+
+Payload URL: Paste your ngrok URL followed by /github-webhook/ (Example: https://your-id.ngrok-free.app/github-webhook/).
+
+Content type: application/json.
+
+Click Add webhook.
+
+4. Configure Jenkins Job Triggers
+
+Go to your Jenkins job (from Experiment 7) and click Configure.
+
+In the Build Triggers section:
+
+Check GitHub hook trigger for GITScm polling.
+
+Check Poll SCM.
+
+
+Schedule: Enter * * * * * (this tells Jenkins to check every minute, though the Webhook will handle instant triggers).
+
+5. Update Build Steps
+
+Ensure your Execute Windows batch command is set to build your Calculator:
+
+Code snippet
+javac Calculator.java
+java Calculator
