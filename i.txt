@@ -34,6 +34,16 @@ Schedule: Enter * * * * * (this tells Jenkins to check every minute, though the 
 
 5. Update Build Steps
 
+
+
+
+
+
+Experiment 8: Jenkins Build TriggersAim:
+To understand and configure Jenkins build automation by enabling build triggers such as SCM polling and GitHub webhooks in order to automatically trigger builds when changes occur in the source code repository.Theory:Build Trigger: Defines the condition under which a Jenkins job is executed.
+SCM Polling: Jenkins periodically checks the repository for changes. If a change is detected, a build is triggered.GitHub Webhook: A real-time notification sent from GitHub to Jenkins. This is more efficient than polling as it triggers builds instantly upon a "push" event
+.ngrok: Since your Jenkins is likely running on localhost:8080, GitHub cannot "see" it over the internet. 
+ngrok creates a secure tunnel to expose your local server to the web, providing a URL that you can paste into GitHub's Webhook settings.
 Ensure your Execute Windows batch command is set to build your Calculator:
 
 Code snippet
